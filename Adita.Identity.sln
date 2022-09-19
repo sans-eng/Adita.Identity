@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adita.Identity.Core", "Adita.Identity.Core\Adita.Identity.Core.csproj", "{E6F7F477-DECB-4065-AA2A-6E1373A9F460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adita.Identity.EntityFrameworkCore", "Adita.Identity.EntityFrameworkCore\Adita.Identity.EntityFrameworkCore.csproj", "{D5DB60A7-0704-443D-AE80-E1C7F1F99A82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6F7F477-DECB-4065-AA2A-6E1373A9F460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6F7F477-DECB-4065-AA2A-6E1373A9F460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6F7F477-DECB-4065-AA2A-6E1373A9F460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6F7F477-DECB-4065-AA2A-6E1373A9F460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5DB60A7-0704-443D-AE80-E1C7F1F99A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5DB60A7-0704-443D-AE80-E1C7F1F99A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5DB60A7-0704-443D-AE80-E1C7F1F99A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5DB60A7-0704-443D-AE80-E1C7F1F99A82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7645BF31-70A2-4EB8-8A29-41A07FE6182D}
+	EndGlobalSection
+EndGlobal
