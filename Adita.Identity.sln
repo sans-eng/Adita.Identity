@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adita.Identity.Core", "Adit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adita.Identity.EntityFrameworkCore", "Adita.Identity.EntityFrameworkCore\Adita.Identity.EntityFrameworkCore.csproj", "{D5DB60A7-0704-443D-AE80-E1C7F1F99A82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adita.Identity.Core.Test", "Adita.Identity.Core.Test\Adita.Identity.Core.Test.csproj", "{7FA24649-C5B2-462C-8A3F-B4FEBF6B6523}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D5DB60A7-0704-443D-AE80-E1C7F1F99A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5DB60A7-0704-443D-AE80-E1C7F1F99A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5DB60A7-0704-443D-AE80-E1C7F1F99A82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FA24649-C5B2-462C-8A3F-B4FEBF6B6523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FA24649-C5B2-462C-8A3F-B4FEBF6B6523}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FA24649-C5B2-462C-8A3F-B4FEBF6B6523}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FA24649-C5B2-462C-8A3F-B4FEBF6B6523}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
