@@ -39,7 +39,7 @@ namespace Adita.Identity.Core.Internals.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Weq.Identity.Core.Internals.Resources.ErrorStrings", typeof(ErrorStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Adita.Identity.Core.Internals.Resources.ErrorStrings", typeof(ErrorStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
