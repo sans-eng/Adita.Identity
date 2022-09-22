@@ -38,14 +38,14 @@ using System.Security.Claims;
 namespace Adita.Identity.Core.Services.Managers.UserManagers
 {
     /// <summary>
-    /// Provides the APIs for managing user in a persistence store.
+    /// Provides the APIs for managing user in a persistence repository.
     /// </summary>
     /// <typeparam name="TKey">The type used for the primary key of the user and role.</typeparam>
     /// <typeparam name="TUser">The type of the user.</typeparam>
     /// <typeparam name="TUserClaim">The type for a user claim.</typeparam>
     /// <typeparam name="TUserRole">The type for a user role.</typeparam>
     /// <typeparam name="TRole">The type of the role.</typeparam>
-    public class UserManager<TKey, TUser, TUserClaim, TUserRole, TRole> : IUserManager<TKey, TUser, TRole>
+    public class UserManager<TKey, TUser, TUserClaim, TUserRole, TRole> : IUserManager<TKey, TUser>, IUserManager<TKey, TUser, TRole>
         where TKey : IEquatable<TKey>
         where TUser : IdentityUser<TKey>, new()
         where TUserClaim : IdentityUserClaim<TKey>, new()
