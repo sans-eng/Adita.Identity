@@ -1,28 +1,28 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Security.Claims;
 using Adita.Extensions.Logging;
-using Adita.Identity.Core.Models;
-using Adita.Identity.Core.Options;
 using Adita.Identity.Core.Services;
-using Adita.Identity.Core.Services.Factories.ApplicationPrincipalFactories;
-using Adita.Identity.Core.Services.LookupNormalizers;
 using Adita.Identity.Core.Services.Managers.RoleManagers;
 using Adita.Identity.Core.Services.Managers.UserManagers;
-using Adita.Identity.Core.Services.PasswordHashers;
-using Adita.Identity.Core.Services.PasswordValidators;
 using Adita.Identity.Core.Services.Repositories.RoleClaimRepositories;
 using Adita.Identity.Core.Services.Repositories.RoleRepositories;
 using Adita.Identity.Core.Services.Repositories.UserClaimRepositories;
 using Adita.Identity.Core.Services.Repositories.UserRepositories;
 using Adita.Identity.Core.Services.Repositories.UserRoleRepositories;
-using Adita.Identity.Core.Services.RoleValidators;
-using Adita.Identity.Core.Services.UserValidators;
 using Adita.Identity.Core.Test.Services.Repositories.RoleClaimRepositories;
 using Adita.Identity.Core.Test.Services.Repositories.RoleRepositories;
 using Adita.Identity.Core.Test.Services.Repositories.UserClaimRepositories;
 using Adita.Identity.Core.Test.Services.Repositories.UserRepositories;
 using Adita.Identity.Core.Test.Services.Repositories.UserRoleRepositories;
 using Adita.Security.Principal;
+using Adita.Identity.Core.Services.PasswordHashers;
+using Adita.Identity.Core.Services.LookupNormalizers;
+using Adita.Identity.Core.Services.PasswordValidators;
+using Adita.Identity.Core.Services.RoleValidators;
+using Adita.Identity.Core.Services.UserValidators;
+using Adita.Identity.Core.Services.Factories.ApplicationPrincipalFactories;
+using Adita.Identity.Core.Models;
+using Adita.Identity.Core.Options;
 
 namespace Adita.Identity.Core.Test.Services.Factories
 {

@@ -20,9 +20,9 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using Adita.Identity.Core.Models;
 using System.Runtime.CompilerServices;
 using System.Security.Claims;
+using Adita.Identity.Core.Models;
 
 namespace Adita.Identity.Core.Services.Managers.UserManagers
 {

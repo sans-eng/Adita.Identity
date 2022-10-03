@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Adita.Identity.Core.Models;
-using Adita.Identity.Core.Options;
 using Adita.Identity.Core.Services;
 using Adita.Identity.Core.Services.PasswordValidators;
+using Adita.Identity.Core.Models;
+using Adita.Identity.Core.Options;
 
 namespace Adita.Identity.Core.Test.Services.PasswordValidators
 {

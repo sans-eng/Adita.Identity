@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Adita.Identity.Core.Models;
+using Adita.Identity.Core.Services.PasswordHashers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Adita.Identity.Core.Models;
-using Adita.Identity.Core.Services.PasswordHashers;
 
 namespace Adita.Identity.Core.Test.Services.PasswordHashers
 {

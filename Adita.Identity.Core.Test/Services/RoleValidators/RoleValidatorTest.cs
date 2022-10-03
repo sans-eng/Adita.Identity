@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Adita.Identity.Core.Models;
-using Adita.Identity.Core.Options;
 using Adita.Identity.Core.Services;
 using Adita.Identity.Core.Services.Repositories.RoleRepositories;
-using Adita.Identity.Core.Services.RoleValidators;
 using Adita.Identity.Core.Test.Services.Repositories.RoleRepositories;
+using Adita.Identity.Core.Services.RoleValidators;
+using Adita.Identity.Core.Models;
+using Adita.Identity.Core.Options;
 
 namespace Adita.Identity.Core.Test.Services.RoleValidators
 {

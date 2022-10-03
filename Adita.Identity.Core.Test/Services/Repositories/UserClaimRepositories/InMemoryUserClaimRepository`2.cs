@@ -6,9 +6,9 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using Adita.Identity.Core.Models;
 using Adita.Identity.Core.Services;
 using Adita.Identity.Core.Services.Repositories.UserClaimRepositories;
+using Adita.Identity.Core.Models;
 
 namespace Adita.Identity.Core.Test.Services.Repositories.UserClaimRepositories
 {

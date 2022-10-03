@@ -1,5 +1,5 @@
-﻿using Adita.Identity.Core.Models;
-using System.Security.Claims;
+﻿using System.Security.Claims;
+using Adita.Identity.Core.Models;
 
 namespace Adita.Identity.Core.Services.Managers.UserManagers
 {

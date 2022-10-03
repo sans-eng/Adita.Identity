@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Data;
-using Adita.Identity.Core.Models;
 using Adita.Identity.Core.Services;
 using Adita.Identity.Core.Services.Repositories.UserRepositories;
+using Adita.Identity.Core.Models;
 
 namespace Adita.Identity.Core.Test.Services.Repositories.UserRepositories
 {

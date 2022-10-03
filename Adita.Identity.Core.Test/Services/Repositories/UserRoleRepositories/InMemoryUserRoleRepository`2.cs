@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Adita.Identity.EntityFrameworkCore.Services.Repositories.UserRepositories;
-using Adita.Identity.Core.Models;
 using Adita.Identity.Core.Services;
 using Adita.Identity.Core.Services.Repositories.UserRoleRepositories;
+using Adita.Identity.Core.Models;
 
 namespace Adita.Identity.Core.Test.Services.Repositories.UserRoleRepositories
 {
