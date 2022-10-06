@@ -23,6 +23,7 @@
 using Adita.Identity.Core.Models;
 using Adita.Identity.Core.Services;
 using Adita.Identity.EntityFrameworkCore.Models.DbContexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Adita.Identity.EntityFrameworkCore.Services.Repositories.UserRepositories
 {
@@ -32,7 +33,7 @@ namespace Adita.Identity.EntityFrameworkCore.Services.Repositories.UserRepositor
     /// <typeparam name="TKey">The type used for the primary key of a user.</typeparam>
     /// <typeparam name="TUser">The type that encapsulate the user.</typeparam>
     public class UserRepository<TKey, TUser> :
-        UserRepository<TKey, TUser, IdentityDbContext<TKey, TUser>>
+        UserRepository<TKey, TUser, DbContext>
         where TKey : IEquatable<TKey>
         where TUser : IdentityUser<TKey>, new()
     {
@@ -40,11 +41,11 @@ namespace Adita.Identity.EntityFrameworkCore.Services.Repositories.UserRepositor
         /// Initialize a new instance of <see cref="UserRepository{TKey, TUser}" /> using specified
         /// <paramref name="context" /> and <paramref name="errorDescriber" />.
         /// </summary>
-        /// <param name="context">A <see cref="IdentityDbContext{TKey, TUser}"/> to retrieve the users from.</param>
+        /// <param name="context">A <see cref="DbContext"/> to retrieve the users from.</param>
         /// <param name="errorDescriber">An <see cref="IdentityErrorDescriber" />
         /// to get localized error strings from.</param>
         /// <exception cref="ArgumentNullException"><paramref name="context" /> or <paramref name="errorDescriber" /> is <c>null</c></exception>
-        public UserRepository(IdentityDbContext<TKey, TUser> context, IdentityErrorDescriber errorDescriber)
+        public UserRepository(DbContext context, IdentityErrorDescriber errorDescriber)
             : base(context, errorDescriber)
         {
         }

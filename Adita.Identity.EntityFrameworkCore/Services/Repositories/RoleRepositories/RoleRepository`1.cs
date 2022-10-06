@@ -23,6 +23,7 @@
 using Adita.Identity.Core.Models;
 using Adita.Identity.Core.Services;
 using Adita.Identity.EntityFrameworkCore.Models.DbContexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Adita.Identity.EntityFrameworkCore.Services.Repositories.RoleRepositories
 {
@@ -31,7 +32,7 @@ namespace Adita.Identity.EntityFrameworkCore.Services.Repositories.RoleRepositor
     /// </summary>
     /// <typeparam name="TKey">The type used for the primary key of a role.</typeparam>
     public class RoleRepository<TKey> :
-        RoleRepository<TKey, IdentityRole<TKey>, IdentityDbContext<TKey>>
+        RoleRepository<TKey, IdentityRole<TKey>, DbContext>
         where TKey : IEquatable<TKey>
     {
         #region Constructors
@@ -39,11 +40,11 @@ namespace Adita.Identity.EntityFrameworkCore.Services.Repositories.RoleRepositor
         /// Initialize a new instance of <see cref="RoleRepository{TKey}" /> using specified
         /// <paramref name="context" /> and <paramref name="errorDescriber" />.
         /// </summary>
-        /// <param name="context">A <see cref="IdentityDbContext{TKey}"/> to retrieve the users from.</param>
+        /// <param name="context">A <see cref="DbContext"/> to retrieve the users from.</param>
         /// <param name="errorDescriber">An <see cref="IdentityErrorDescriber" />
         /// to get localized error strings from.</param>
         /// <exception cref="ArgumentNullException"><paramref name="context" /> or <paramref name="errorDescriber" /> is <c>null</c></exception>
-        public RoleRepository(IdentityDbContext<TKey> context, IdentityErrorDescriber errorDescriber)
+        public RoleRepository(DbContext context, IdentityErrorDescriber errorDescriber)
             : base(context, errorDescriber)
         {
         }

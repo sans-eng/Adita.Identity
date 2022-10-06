@@ -22,6 +22,7 @@
 
 using Adita.Identity.Core.Services;
 using Adita.Identity.EntityFrameworkCore.Models.DbContexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Adita.Identity.EntityFrameworkCore.Services.Repositories.RoleClaimRepositories
 {
@@ -35,11 +36,11 @@ namespace Adita.Identity.EntityFrameworkCore.Services.Repositories.RoleClaimRepo
         /// Initialize a new instance of <see cref="RoleClaimRepository" /> using specified
         /// <paramref name="context"/> and <paramref name="errorDescriber" />.
         /// </summary>
-        /// <param name="context">A <see cref="IdentityDbContext"/> to retrieve the users from.</param>
+        /// <param name="context">A <see cref="DbContext"/> to retrieve the users from.</param>
         /// <param name="errorDescriber">An <see cref="IdentityErrorDescriber" />
         /// to get localized error strings from.</param>
         /// <exception cref="ArgumentNullException"><paramref name="context"/> or <paramref name="errorDescriber"/> is <c>null</c></exception>
-        public RoleClaimRepository(IdentityDbContext context, IdentityErrorDescriber errorDescriber) : base(context, errorDescriber)
+        public RoleClaimRepository(DbContext context, IdentityErrorDescriber errorDescriber) : base(context, errorDescriber)
         {
             if (context is null)
             {
