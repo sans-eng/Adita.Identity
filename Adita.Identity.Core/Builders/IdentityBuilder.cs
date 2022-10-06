@@ -19,10 +19,12 @@
 //LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
+
 using Adita.Identity.Core.Models;
 using Adita.Identity.Core.Options;
 using Adita.Identity.Core.Services;
 using Adita.Identity.Core.Services.Factories.ApplicationPrincipalFactories;
+using Adita.Identity.Core.Services.LookupNormalizers;
 using Adita.Identity.Core.Services.Managers.RoleManagers;
 using Adita.Identity.Core.Services.Managers.SignInManagers;
 using Adita.Identity.Core.Services.Managers.UserManagers;
@@ -36,6 +38,7 @@ using Adita.Identity.Core.Services.Repositories.UserRoleRepositories;
 using Adita.Identity.Core.Services.RoleValidators;
 using Adita.Identity.Core.Services.UserValidators;
 using Microsoft.Extensions.DependencyInjection;
+using System.ComponentModel.DataAnnotations;
 
 namespace Adita.Identity.Core.Builders
 {
@@ -57,7 +60,7 @@ namespace Adita.Identity.Core.Builders
         /// <param name="serviceDescriptors">The <see cref="IServiceCollection"/> to attach to.</param>
         public IdentityBuilder(IServiceCollection serviceDescriptors)
         {
-            ServiceDescriptors = serviceDescriptors;
+            Services = serviceDescriptors;
         }
         #endregion Constructors
 
@@ -65,10 +68,41 @@ namespace Adita.Identity.Core.Builders
         /// <summary>
         /// Gets an <see cref="IServiceCollection"/> that currently managed by current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
         /// </summary>
-        public IServiceCollection ServiceDescriptors { get; }
+        public IServiceCollection Services { get; }
+        /// <summary>
+        /// Gets the key <see cref="Type"/> that stores on current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
+        /// </summary>
+        public Type KeyType { get { return typeof(TKey); } }
+        /// <summary>
+        /// Gets the user <see cref="Type"/> that stores on current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
+        /// </summary>
+        public Type UserType { get { return typeof(TUser); } }
+        /// <summary>
+        /// Gets the user claim <see cref="Type"/> that stores on current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
+        /// </summary>
+        public Type UserClaimType { get { return typeof(TUserClaim); } }
+        /// <summary>
+        /// Gets the user role <see cref="Type"/> that stores on current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
+        /// </summary>
+        public Type UserRoleType { get { return typeof(TUserRole); } }
+        /// <summary>
+        /// Gets the role <see cref="Type"/> that stores on current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
+        /// </summary>
+        public Type RoleType { get { return typeof(TRole); } }
+        /// <summary>
+        /// Gets the role claim <see cref="Type"/> that stores on current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
+        /// </summary>
+        public Type RoleClaimType { get { return typeof(TRoleClaim); } }
         #endregion Public properties
 
         #region Public methods
+        /// <summary>
+        /// Adds an <see cref="ILookupNormalizer"/> to current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
+        /// </summary>
+        /// <typeparam name="TNormalizer">The <see cref="ILookupNormalizer"/> type.</typeparam>
+        /// <returns>The current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> instance.</returns>
+        public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddLookupNormalizer<TNormalizer>() where TNormalizer : ILookupNormalizer
+        => AddScoped(typeof(ILookupNormalizer), typeof(TNormalizer));
         /// <summary>
         /// Adds an <see cref="IUserValidator{TUser}"/> to current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
         /// </summary>
@@ -90,7 +124,7 @@ namespace Adita.Identity.Core.Builders
         /// <returns>The current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> instance.</returns>
         public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddErrorDescriber<TDescriber>() where TDescriber : IdentityErrorDescriber
         {
-            ServiceDescriptors.AddScoped<IdentityErrorDescriber, TDescriber>();
+            Services.AddScoped<IdentityErrorDescriber, TDescriber>();
             return this;
         }
         /// <summary>
@@ -183,7 +217,7 @@ namespace Adita.Identity.Core.Builders
         /// <returns>The current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> instance.</returns>
         public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> ConfigureIdentityOptions(Action<IdentityOptions> configureAction)
         {
-            ServiceDescriptors.Configure(configureAction);
+            Services.Configure(configureAction);
             return this;
         }
         #endregion Public methods
@@ -191,7 +225,7 @@ namespace Adita.Identity.Core.Builders
         #region Private methods
         private IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddScoped(Type serviceType, Type concreteType)
         {
-            ServiceDescriptors.AddScoped(serviceType, concreteType);
+            Services.AddScoped(serviceType, concreteType);
             return this;
         }
         #endregion Private methods
