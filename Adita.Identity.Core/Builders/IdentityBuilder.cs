@@ -20,9 +20,11 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 using Adita.Identity.Core.Models;
+using Adita.Identity.Core.Options;
 using Adita.Identity.Core.Services;
 using Adita.Identity.Core.Services.Factories.ApplicationPrincipalFactories;
 using Adita.Identity.Core.Services.Managers.RoleManagers;
+using Adita.Identity.Core.Services.Managers.SignInManagers;
 using Adita.Identity.Core.Services.Managers.UserManagers;
 using Adita.Identity.Core.Services.PasswordHashers;
 using Adita.Identity.Core.Services.PasswordValidators;
@@ -159,6 +161,27 @@ namespace Adita.Identity.Core.Builders
         public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddRoleManager<TRoleManager>() where TRoleManager : IRoleManager<TKey, TRole>
         {
             return AddScoped(typeof(IRoleManager<TKey, TRole>), typeof(TRoleManager));
+        }
+        /// <summary>
+        /// Adds a <see cref="ISignInManager{TUser}"/> to current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
+        /// </summary>
+        /// <typeparam name="TSignInManager">The type of the sign-in manager to add.</typeparam>
+        /// <returns>The current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> instance.</returns>
+        public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddSignInManager<TSignInManager>() 
+            where TSignInManager : ISignInManager<TUser>
+        {
+            return AddScoped(typeof(ISignInManager<TUser>), typeof(TSignInManager));
+        }
+        /// <summary>
+        /// Registers specified <paramref name="configureAction"/> to configure an <see cref="IdentityOptions"/>
+        /// to current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
+        /// </summary>
+        /// <param name="configureAction">The <see cref="Action{T}"/> of <see cref="IdentityOptions"/> to configure an <see cref="IdentityOptions"/>.</param>
+        /// <returns>The current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> instance.</returns>
+        public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> ConfigureIdentityOptions(Action<IdentityOptions> configureAction)
+        {
+            _serviceDescriptors.Configure(configureAction);
+            return this;
         }
         #endregion Public methods
 
