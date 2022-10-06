@@ -10,7 +10,7 @@
     <Authors>Setya Adi Kurnia</Authors>
     <Company>Adita</Company>
     <Description>EnitityFrameworkCore implementation for Adita.Identity.Core</Description>
-    <Copyright>©2022, Adita</Copyright>
+    <Copyright>©2022 Adita</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
