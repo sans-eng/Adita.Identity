@@ -49,7 +49,7 @@ namespace Adita.Identity.EntityFrameworkCore.Services.Repositories.UserClaimRepo
         /// Initialize a new instance of <see cref="UserClaimRepository{TKey, TUserClaim, TContext}" /> using specified
         /// <paramref name="context"/> and <paramref name="errorDescriber" />.
         /// </summary>
-        /// <param name="context">A <typeparamref name="TContext"/> to retrieve the users from.</param>
+        /// <param name="context">A <typeparamref name="TContext"/> to retrieve the user claims from.</param>
         /// <param name="errorDescriber">An <see cref="IdentityErrorDescriber" />
         /// to get localized error strings from.</param>
         /// <exception cref="ArgumentNullException"><paramref name="context"/> or <paramref name="errorDescriber"/> is <c>null</c></exception>

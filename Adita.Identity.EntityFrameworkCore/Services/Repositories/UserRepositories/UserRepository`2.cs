@@ -37,6 +37,7 @@ namespace Adita.Identity.EntityFrameworkCore.Services.Repositories.UserRepositor
         where TKey : IEquatable<TKey>
         where TUser : IdentityUser<TKey>, new()
     {
+        #region Constructors
         /// <summary>
         /// Initialize a new instance of <see cref="UserRepository{TKey, TUser}" /> using specified
         /// <paramref name="context" /> and <paramref name="errorDescriber" />.
@@ -49,5 +50,6 @@ namespace Adita.Identity.EntityFrameworkCore.Services.Repositories.UserRepositor
             : base(context, errorDescriber)
         {
         }
+        #endregion Constructors
     }
 }
