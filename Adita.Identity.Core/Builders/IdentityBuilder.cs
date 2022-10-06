@@ -50,10 +50,6 @@ namespace Adita.Identity.Core.Builders
         where TRole : IdentityRole<TKey>
         where TRoleClaim : IdentityRoleClaim<TKey>
     {
-        #region Private fields
-        private readonly IServiceCollection _serviceDescriptors;
-        #endregion Private fields
-
         #region Constructors
         /// <summary>
         /// Initialize a new instance of <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> using specified <paramref name="serviceDescriptors"/>.
@@ -61,9 +57,16 @@ namespace Adita.Identity.Core.Builders
         /// <param name="serviceDescriptors">The <see cref="IServiceCollection"/> to attach to.</param>
         public IdentityBuilder(IServiceCollection serviceDescriptors)
         {
-            _serviceDescriptors = serviceDescriptors;
+            ServiceDescriptors = serviceDescriptors;
         }
         #endregion Constructors
+
+        #region Public properties
+        /// <summary>
+        /// Gets an <see cref="IServiceCollection"/> that currently managed by current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
+        /// </summary>
+        public IServiceCollection ServiceDescriptors { get; }
+        #endregion Public properties
 
         #region Public methods
         /// <summary>
@@ -87,7 +90,7 @@ namespace Adita.Identity.Core.Builders
         /// <returns>The current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> instance.</returns>
         public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddErrorDescriber<TDescriber>() where TDescriber : IdentityErrorDescriber
         {
-            _serviceDescriptors.AddScoped<IdentityErrorDescriber, TDescriber>();
+            ServiceDescriptors.AddScoped<IdentityErrorDescriber, TDescriber>();
             return this;
         }
         /// <summary>
@@ -180,7 +183,7 @@ namespace Adita.Identity.Core.Builders
         /// <returns>The current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> instance.</returns>
         public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> ConfigureIdentityOptions(Action<IdentityOptions> configureAction)
         {
-            _serviceDescriptors.Configure(configureAction);
+            ServiceDescriptors.Configure(configureAction);
             return this;
         }
         #endregion Public methods
@@ -188,7 +191,7 @@ namespace Adita.Identity.Core.Builders
         #region Private methods
         private IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddScoped(Type serviceType, Type concreteType)
         {
-            _serviceDescriptors.AddScoped(serviceType, concreteType);
+            ServiceDescriptors.AddScoped(serviceType, concreteType);
             return this;
         }
         #endregion Private methods
