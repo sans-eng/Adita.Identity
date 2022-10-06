@@ -34,7 +34,7 @@ namespace Adita.Identity.EntityFrameworkCore.Models.DbContexts
     /// <typeparam name="TUserRole">The type that encapsulating the user role.</typeparam>
     /// <typeparam name="TRole">The type that encapsulating the role.</typeparam>
     /// <typeparam name="TRoleClaim">The type that encapsulating the role claim.</typeparam>
-    public abstract class IdentityDbContext<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> : DbContext
+    public class IdentityDbContext<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> : DbContext
         where TKey : IEquatable<TKey>
         where TUser : IdentityUser<TKey>
         where TUserClaim : IdentityUserClaim<TKey>
