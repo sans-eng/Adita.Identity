@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Adita.Extensions.Logging" Version="1.0.0" />
     <PackageReference Include="Adita.Security" Version="2.2.0" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
@@ -25,12 +26,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Adita.Identity.Core\Adita.Identity.Core.csproj" />
     <ProjectReference Include="..\Adita.Identity.EntityFrameworkCore\Adita.Identity.EntityFrameworkCore.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Adita.Extensions.Logging">
-      <HintPath>..\..\Adita.Extensions.Logging\Adita.Extensions.Logging\bin\Release\net6.0\Adita.Extensions.Logging.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
