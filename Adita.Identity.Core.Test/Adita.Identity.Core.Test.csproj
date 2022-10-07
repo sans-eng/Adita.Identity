@@ -9,9 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Adita.Security" Version="2.2.0" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
     <PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
@@ -26,9 +30,6 @@
   <ItemGroup>
     <Reference Include="Adita.Extensions.Logging">
       <HintPath>..\..\Adita.Extensions.Logging\Adita.Extensions.Logging\bin\Release\net6.0\Adita.Extensions.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Adita.Security">
-      <HintPath>..\..\Adita.Security\Adita.Security\bin\Release\net6.0\Adita.Security.dll</HintPath>
     </Reference>
   </ItemGroup>
 
