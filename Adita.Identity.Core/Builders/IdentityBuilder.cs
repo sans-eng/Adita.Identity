@@ -38,6 +38,7 @@ using Adita.Identity.Core.Services.Repositories.UserRoleRepositories;
 using Adita.Identity.Core.Services.RoleValidators;
 using Adita.Identity.Core.Services.UserValidators;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.ComponentModel.DataAnnotations;
 
 namespace Adita.Identity.Core.Builders
@@ -147,21 +148,21 @@ namespace Adita.Identity.Core.Builders
         /// <typeparam name="TRepository">The user repository type.</typeparam>
         /// <returns>The current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> instance.</returns>
         public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddUserRepository<TRepository>() where TRepository : IUserRepository<TKey, TUser>
-            => AddScoped(typeof(IUserRepository<TKey, TUser>), typeof(TRepository));
+            => TryAddScoped(typeof(IUserRepository<TKey, TUser>), typeof(TRepository));
         /// <summary>
         /// Adds an <see cref="IUserClaimRepository{TKey, TUserClaim}"/> to current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
         /// </summary>
         /// <typeparam name="TRepository">The user claim repository type.</typeparam>
         /// <returns>The current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> instance.</returns>
         public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddUserClaimRepository<TRepository>() where TRepository : IUserClaimRepository<TKey, TUserClaim>
-            => AddScoped(typeof(IUserRepository<TKey, TUser>), typeof(TRepository));
+            => TryAddScoped(typeof(IUserRepository<TKey, TUser>), typeof(TRepository));
         /// <summary>
         /// Adds an <see cref="IUserClaimRepository{TKey, TUserClaim}"/> to current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
         /// </summary>
         /// <typeparam name="TRepository">The user role repository type.</typeparam>
         /// <returns>The current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> instance.</returns>
         public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddUserRoleRepository<TRepository>() where TRepository : IUserRoleRepository<TKey, TUserRole>
-            => AddScoped(typeof(IUserRoleRepository<TKey, TUserRole>), typeof(TRepository));
+            => TryAddScoped(typeof(IUserRoleRepository<TKey, TUserRole>), typeof(TRepository));
         /// <summary>
         /// Adds a <see cref="IUserManager{TKey, TUser, TRole}"/> to current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
         /// </summary>
@@ -182,14 +183,14 @@ namespace Adita.Identity.Core.Builders
         /// <typeparam name="TRepository">The role repository type.</typeparam>
         /// <returns>The current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> instance.</returns>
         public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddRoleRepository<TRepository>() where TRepository : IRoleRepository<TKey, TRole>
-            => AddScoped(typeof(IRoleRepository<TKey, TRole>), typeof(TRepository));
+            => TryAddScoped(typeof(IRoleRepository<TKey, TRole>), typeof(TRepository));
         /// <summary>
         /// Adds a <see cref="IRoleClaimRepository{TKey, TRoleClaim}"/> to current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
         /// </summary>
         /// <typeparam name="TRepository">The role claim repository type.</typeparam>
         /// <returns>The current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> instance.</returns>
         public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddRoleClaimRepository<TRepository>() where TRepository : IRoleClaimRepository<TKey, TRoleClaim>
-            => AddScoped(typeof(IRoleClaimRepository<TKey, TRoleClaim>), typeof(TRepository));
+            => TryAddScoped(typeof(IRoleClaimRepository<TKey, TRoleClaim>), typeof(TRepository));
         /// <summary>
         /// Adds a <see cref="IRoleManager{TKey, TRole}"/> to current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
         /// </summary>
@@ -226,6 +227,11 @@ namespace Adita.Identity.Core.Builders
         private IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddScoped(Type serviceType, Type concreteType)
         {
             Services.AddScoped(serviceType, concreteType);
+            return this;
+        }
+        private IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> TryAddScoped(Type serviceType, Type concreteType)
+        {
+            Services.TryAddScoped(serviceType, concreteType);
             return this;
         }
         #endregion Private methods
