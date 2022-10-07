@@ -11,6 +11,13 @@
     <Company>Adita</Company>
     <Description>EnitityFrameworkCore implementation for Adita.Identity.Core</Description>
     <Copyright>©2022 Adita</Copyright>
+    <RepositoryUrl>https://github.com/sans-eng/Adita.Identity</RepositoryUrl>
+    <PackageIcon>favicon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>EntityFrameworkCore; Identity; Authentication; Authorization; Claim; Principal; Security; NET6;</PackageTags>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,7 +30,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\..\..\..\Designs\favicon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Adita.Identity.Core\Adita.Identity.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
