@@ -155,7 +155,7 @@ namespace Adita.Identity.Core.Builders
         /// <typeparam name="TRepository">The user claim repository type.</typeparam>
         /// <returns>The current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> instance.</returns>
         public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddUserClaimRepository<TRepository>() where TRepository : IUserClaimRepository<TKey, TUserClaim>
-            => TryAddScoped(typeof(IUserRepository<TKey, TUser>), typeof(TRepository));
+            => TryAddScoped(typeof(IUserClaimRepository<TKey, TUserClaim>), typeof(TRepository));
         /// <summary>
         /// Adds an <see cref="IUserClaimRepository{TKey, TUserClaim}"/> to current <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/>.
         /// </summary>
